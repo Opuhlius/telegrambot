@@ -29,9 +29,11 @@ def convert(message: telebot.types.Message):
 
         quote, base, amount = values
         total_base = CryptoConverter.convert(quote, base, amount)
-
+    
     except ConvertionExeption as e:
         bot.send_message(message.chat.id, f'Ошибка пользователя.\n{e}')     
+    
+
     except Exception as e:
         bot.send_message(message.chat.id, f'Не удалось обработать команду\n{e}')
     else:
